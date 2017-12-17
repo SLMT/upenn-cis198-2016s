@@ -1,8 +1,11 @@
 
 /// Computes the sum of all elements in the input i32 slice named `slice`
 pub fn sum(slice: &[i32]) -> i32 {
-    // TODO
-    unimplemented!();
+    let mut result: i32 = 0;
+    for i in slice {
+        result += *i;
+    }
+    result
 }
 
 /// Deduplicates items in the input vector `vs`. Produces a vector containing
