@@ -29,27 +29,27 @@ fn test_filter() {
 
 #[test]
 fn test_mat_mult() {
-    let mut mat1 = vec![vec![0.;3]; 3];
-    for i in 0..mat1.len() {
-        mat1[i][i] = 1.;
-    }
-    let mat2 = vec![vec![5.;3]; 3];
+    let mut mat1 = vec![vec![1, 2, 3], vec![4, 5, 6]];
+    let mut mat2 = vec![vec![7, 8], vec![9, 10], vec![11, 12]];
+    let mut act_result = vec![vec![58, 64], vec![139, 154]];
+
     let result = mat_mult(&mat1, &mat2);
+
     for i in 0..result.len() {
         for j in 0..result[i].len() {
-            assert_eq!(result[i][j], mat2[i][j]);
+            assert_eq!(result[i][j], act_result[i][j]);
         }
     }
 }
 
 #[test]
-fn test_sieve_basic() {
-    assert_eq!(vec![2,3,5,7,11], sieve(12));
+fn test_sieve_100() {
+    assert_eq!(vec![2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97], sieve(100));
 }
 
 #[test]
-fn test_hanoi_1_disks() {
-    let result = hanoi(1, Peg::A, Peg::B, Peg::C);
-    assert_eq!(vec![(Peg::A, Peg::C)], result);
-    assert_eq!(1, result.len());
+fn test_hanoi_3_disks() {
+    let result = hanoi(3, Peg::A, Peg::B, Peg::C);
+    assert_eq!(vec![(Peg::A, Peg::C),(Peg::A, Peg::B),(Peg::C, Peg::B),(Peg::A, Peg::C)
+        ,(Peg::B, Peg::A),(Peg::B, Peg::C),(Peg::A, Peg::C)], result);
 }
