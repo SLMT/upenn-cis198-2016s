@@ -14,7 +14,7 @@ fn test_sum() {
 #[test]
 fn test_dedup() {
     let vs = vec![5,7,1,3,6,7,15,7,8,21,6,8,1,5,6,2,63,51,1];
-    assert_eq!(dedup(&vs), vec![5,7,1,3,6,15,8,21,2,63]);
+    assert_eq!(dedup(&vs), vec![5,7,1,3,6,15,8,21,2,63,51]);
 }
 
 fn positive(x: i32) -> bool {
