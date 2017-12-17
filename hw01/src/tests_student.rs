@@ -29,9 +29,9 @@ fn test_filter() {
 
 #[test]
 fn test_mat_mult() {
-    let mut mat1 = vec![vec![1, 2, 3], vec![4, 5, 6]];
-    let mut mat2 = vec![vec![7, 8], vec![9, 10], vec![11, 12]];
-    let mut act_result = vec![vec![58, 64], vec![139, 154]];
+    let mut mat1 = vec![vec![1., 2., 3.], vec![4., 5., 6.]];
+    let mut mat2 = vec![vec![7., 8.], vec![9., 10.], vec![11., 12.]];
+    let mut act_result = vec![vec![58., 64.], vec![139., 154.]];
 
     let result = mat_mult(&mat1, &mat2);
 
