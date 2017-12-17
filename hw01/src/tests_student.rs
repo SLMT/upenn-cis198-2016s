@@ -18,7 +18,7 @@ fn test_dedup() {
 }
 
 fn positive(x: i32) -> bool {
-    (x % 2) == 0
+    x > 0
 }
 
 #[test]
