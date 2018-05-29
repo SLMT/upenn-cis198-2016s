@@ -2,6 +2,7 @@ pub mod game;
 mod ui;
 
 extern crate rand;
+extern crate serde_json;
 
 use std::env::args;
 use std::fs::File;
