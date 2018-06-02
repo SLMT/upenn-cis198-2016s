@@ -22,6 +22,9 @@ impl Eq for Room {}
 
 impl Room {
     // TODO: Implement the necessary methods for Rooms.
+    pub fn add_hall(&mut self, hall: Rc<Hall>) {
+        self.halls.push(hall);
+    }
 
     pub fn neighbors_string(&self) -> String {
         // TODO: Implement

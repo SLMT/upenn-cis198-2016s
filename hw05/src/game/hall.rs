@@ -9,9 +9,11 @@ pub struct Hall {
 }
 
 impl Hall {
-    pub fn new() -> Hall {
-        // TODO: Implement
-        unimplemented!();
+    pub fn new(left: Rc<RefCell<Room>>, right: Rc<RefCell<Room>>) -> Hall {
+        Hall {
+            left: left,
+            right: right
+        }
     }
 
     /// Given a Room `room`, find the room at the other end of Hall `self`.
