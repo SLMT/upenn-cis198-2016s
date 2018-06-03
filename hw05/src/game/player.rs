@@ -73,11 +73,24 @@ impl Player {
                 // Update the location
                 self.location = next_room;
             },
-            Command::Shoot(_) => {
-                unimplemented!()
+            Command::Shoot(room_name) => {
+                let target_room = try!(self.find_room(room_name));
+
+                println!("You shoot an arrow into room {}", target_room.borrow().name);
+                if target_room.borrow().wumpus {
+                    println!("You killed Wumpus!");
+                    target_room.borrow_mut().kill_wumpus();
+                    self.won = true;
+                } else {
+                    println!("You missed. There is nothing there.");
+                }
             }
         }
         Ok(())
+    }
+
+    pub fn is_won(&self) -> bool {
+        self.won
     }
 
     /// Find one of the neighbors of the current room based on its name. Case insensitive.

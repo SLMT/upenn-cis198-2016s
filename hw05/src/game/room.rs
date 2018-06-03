@@ -1,6 +1,4 @@
 use std::rc::Rc;
-use std::cell::RefCell;
-use std::mem;
 
 use super::curio::Curio;
 use super::hall::Hall;
@@ -29,6 +27,10 @@ impl Room {
         self.contents.pop()
     }
 
+    pub fn kill_wumpus(&mut self) {
+        self.wumpus = false;
+    }
+
     pub fn neighbors_string(&self) -> String {
         // "There are XX rooms connecting to here"
         // For each room, "one room has XXX, OOO, ###."
@@ -38,7 +40,7 @@ impl Room {
 
         for hall in &self.halls {
             let room = hall.other(self);
-            result += &format!("- to room {}", room.borrow().name);
+            result += &format!("- to {}", room.borrow().name);
 
             // If there is anything in the room
             if !room.borrow().contents.is_empty() {

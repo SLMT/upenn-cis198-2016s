@@ -35,6 +35,11 @@ pub fn game_loop(mut player: Player) {
                     if let Err(_) = player.act(cmd) {
                         println!("I don't know how to {}!", buf.trim());
                     }
+
+                    if player.is_won() {
+                        println!("You won!!");
+                        break;
+                    }
                 }
                 if player.hp <= 0 {
                     println!("You try in vain to shovel more wall chicken into \

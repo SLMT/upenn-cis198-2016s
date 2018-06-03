@@ -4,7 +4,7 @@ use std::result;
 use std::io::Read;
 
 use serde_json;
-use serde_json::{Value, Error};
+use serde_json::Value;
 
 use super::curio::Curio;
 use super::hall::Hall;
