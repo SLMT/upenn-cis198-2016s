@@ -34,6 +34,16 @@ impl Curio {
         }
     }
 
+    pub fn to_string(&self) -> String {
+        match self {
+            Curio::Chest(_) => format!("a chest"),
+            Curio::SpikeTrap(_) => format!("a spike trap"),
+            Curio::Food(_) => format!("a food"),
+            Curio::IronMaiden(_, _) => format!("an iron maiden"),
+            Curio::FallenAdventurer(_) => format!("a fallen adventurer"),
+        }
+    }
+
     fn rand_chest() -> Curio {
         Curio::Chest(((rand::random::<u32>() % MAX_CHEST_VAL) + 1) as i32)
     }

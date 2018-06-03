@@ -18,8 +18,11 @@ impl Hall {
 
     /// Given a Room `room`, find the room at the other end of Hall `self`.
     pub fn other(&self, room: &Room) -> Rc<RefCell<Room>> {
-        // TODO: Implement
-        unimplemented!();
+        if self.left.borrow().name == room.name {
+            self.right.clone()
+        } else {
+            self.left.clone()
+        }
     }
 
 }
